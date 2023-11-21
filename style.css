@@ -51,6 +51,13 @@ body {
     font-weight: 600;
 }
 
+.display h4 {
+    color: #bebebe;
+    position: absolute;
+    left: 5%;
+    top: 43%;
+}
+
 .keys {
     background-color: hsl(223, 31%, 20%);
     border-radius: 0.5rem;
