@@ -27,3 +27,25 @@ const keyArr = document.querySelectorAll('.numKey');
 const operatorKeys = document.querySelectorAll('.operator_key');
 
 console.log(keyArr, operatorKeys);
+
+function calculation(a, b, opr) {
+    let result;
+    switch (opr) {
+        case '+':
+            result = a + b;
+            break;
+        case '-':
+            result = a - b;
+            break;
+        case 'x':
+            result = a * b;
+            break;
+        case '/':
+            result = a / b;
+            break;
+    }
+
+    return result;
+}
+
+
