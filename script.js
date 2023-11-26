@@ -26,7 +26,7 @@ const sideNumber = document.querySelector('.side_input');
 const keyArr = document.querySelectorAll('.numKey');
 const operatorKeys = document.querySelectorAll('.operator_key');
 
-console.log(keyArr, operatorKeys);
+// console.log(keyArr, operatorKeys);
 
 function calculation(a, b, opr) {
     let result;
@@ -52,11 +52,9 @@ function calculation(a, b, opr) {
 let operator = "";
 let operands = "";
 
-let operation = [];
-
+// adding listener to all the number keys
 for (let i = 0; i < keyArr.length; i++) {
     keyArr[i].addEventListener('click', e => {
-        // console.log(e.target.innerText);
         operands += e.target.innerText;
         inputNumber.textContent = operands;
         console.log(operands);
@@ -74,11 +72,10 @@ for (let i = 0; i < keyArr.length; i++) {
     })
 }
 
-
+// adding listener to all the operator keys
 for(let j = 0; j < operatorKeys.length; j++) {
     operatorKeys[j].addEventListener('click', e => {
         operator = e.target.textContent;
-        // if(e.target.textContent == ' / ') e.target.textContent = ' ÷ ';
         console.log(operator);
         operands += operator;
         inputNumber.textContent = operands;
@@ -90,11 +87,12 @@ for(let j = 0; j < operatorKeys.length; j++) {
 btn_equal.addEventListener('click', () => {
     sideNumber.textContent = operands;
     let arr = operands.split(`${operator}`);
-    console.log(arr);
+    // console.log(arr);
     let ans = calculation(Number(arr[0]), Number(arr[1]), operator.trim());
-    console.log(ans);
+    // console.log(ans);
     inputNumber.textContent = ans;
     operands = String(ans);
+    // operands = "";
 })
 
 // when clicked on RESET button
@@ -107,6 +105,6 @@ btn_reset.addEventListener('click', () => {
 // when clicked on DEL button
 btn_del.addEventListener('click', () => {
     operands = operands.slice(0, -1);
-    console.log(operands);
+    // console.log(operands);
     inputNumber.textContent = operands;
 })
