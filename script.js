@@ -32,7 +32,7 @@ function calculation(a, b, opr) {
     let result;
     switch (opr) {
         case '+':
-            result = a + b;
+            result = Math.round((a + b) * 1e12) / 1e12; // copied from stackoverflow
             break;
         case '-':
             result = a - b;
@@ -78,6 +78,7 @@ for (let i = 0; i < keyArr.length; i++) {
 for(let j = 0; j < operatorKeys.length; j++) {
     operatorKeys[j].addEventListener('click', e => {
         operator = e.target.textContent;
+        // if(e.target.textContent == ' / ') e.target.textContent = ' ÷ ';
         console.log(operator);
         operands += operator;
         inputNumber.textContent = operands;
@@ -85,3 +86,27 @@ for(let j = 0; j < operatorKeys.length; j++) {
     })
 }
 
+// when clicked on EQUAL button
+btn_equal.addEventListener('click', () => {
+    sideNumber.textContent = operands;
+    let arr = operands.split(`${operator}`);
+    console.log(arr);
+    let ans = calculation(Number(arr[0]), Number(arr[1]), operator.trim());
+    console.log(ans);
+    inputNumber.textContent = ans;
+    operands = String(ans);
+})
+
+// when clicked on RESET button
+btn_reset.addEventListener('click', () => {
+    inputNumber.textContent = "";
+    sideNumber.textContent = "";
+    operands = '';
+})
+
+// when clicked on DEL button
+btn_del.addEventListener('click', () => {
+    operands = operands.slice(0, -1);
+    console.log(operands);
+    inputNumber.textContent = operands;
+})
