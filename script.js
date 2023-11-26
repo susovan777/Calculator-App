@@ -49,3 +49,39 @@ function calculation(a, b, opr) {
 }
 
 
+let operator = "";
+let operands = "";
+
+let operation = [];
+
+for (let i = 0; i < keyArr.length; i++) {
+    keyArr[i].addEventListener('click', e => {
+        // console.log(e.target.innerText);
+        operands += e.target.innerText;
+        inputNumber.textContent = operands;
+        console.log(operands);
+        // inputNumber.textContent = inputNumber.textContent + e.target.innerText;
+        // operands = Number(inputNumber.textContent);
+
+        // if (e.target.id == 'plus' || e.target.id == 'minus' || e.target.id == 'multiply' || e.target.id == 'division') {
+
+        // }
+
+        // if (e.target.id == 'equal') {
+        //     sideNumber.innerText = inputNumber.textContent;
+        //     // inputNumber.textContent = 
+        // }
+    })
+}
+
+
+for(let j = 0; j < operatorKeys.length; j++) {
+    operatorKeys[j].addEventListener('click', e => {
+        operator = e.target.textContent;
+        console.log(operator);
+        operands += operator;
+        inputNumber.textContent = operands;
+        
+    })
+}
+
