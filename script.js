@@ -20,3 +20,10 @@ const btn_del = document.getElementById('del')
 const btn_reset = document.getElementById('reset')
 const btn_equal = document.getElementById('equal')
 
+const inputNumber = document.querySelector('.main_input');
+const sideNumber = document.querySelector('.side_input');
+
+const keyArr = document.querySelectorAll('.numKey');
+const operatorKeys = document.querySelectorAll('.operator_key');
+
+console.log(keyArr, operatorKeys);
